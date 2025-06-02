@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, send_file  # send_fileを追加
 from datetime import datetime
 import pytz  # 日本時間のために追加
 import csv
@@ -45,6 +45,13 @@ def index():
     message = session.get("message", "自信をもて！肯定感UP!")
 
     return render_template("index.html", current_time=jst_time, records=records, message=message)
+
+@app.route("/download")
+def download_csv():
+    try:
+        return send_file("record.csv", as_attachment=True)
+    except FileNotFoundError:
+        return "まだ記録がありません。"
 
 if __name__ == "__main__":
     app.run(debug=True)
