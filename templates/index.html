@@ -66,6 +66,27 @@
             text-align: center;
             color: #555;
         }
+
+        /* ここからダウンロードボタンのスタイル（グレー） */
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px 0;
+            background-color: #888888;  /* グレー */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #666666;  /* 少し濃いグレー */
+        }
+        /* ここまで */
     </style>
 </head>
 <body>
@@ -78,6 +99,9 @@
     </form>
 
     <h2 style="color: #FF8C00; margin-top: 30px;">{{ message }}</h2>
+
+    <!-- ダウンロードボタン -->
+    <a href="/download" class="download-btn">記録をCSVでダウンロード</a>
 
     <h3>最近の記録（最新20件）</h3>
     <ul>
